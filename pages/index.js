@@ -19,15 +19,17 @@ export const getStaticProps = async() => {
         nodeByUri(uri: "/") {
           ... on Page {
             id
+            title
             blocks(postTemplate: false)
           }
         }
       }
     `
   })
+  const blocks = cleanAndTransformBlocks (data.nodeByUri.blocks);
   return {
     props: {
-      blocks: cleanAndTransformBlocks (data.nodeByUri.blocks),
+      blocks,
     }
   }
 }
