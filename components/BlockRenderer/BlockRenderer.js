@@ -48,7 +48,9 @@ export const BlockRenderer = ({ blocks }) => {
                     <Columns
                         key={block.id}
                         isStackedOnMobile={block.attributes.isStackedOnMobile}
-                    />
+                    >
+                        <BlockRenderer blocks={block.innerBlocks} />
+                    </Columns>
                 )
             }
             default: {
