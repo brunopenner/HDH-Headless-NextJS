@@ -29,6 +29,7 @@ export const BlockRenderer = ({ blocks }) => {
                 }
                 />
             }
+            case 'core/post-title':
             case 'core/heading': {
                 return <Heading 
                 key={block.id} 
