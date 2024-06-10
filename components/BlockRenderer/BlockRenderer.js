@@ -4,6 +4,7 @@ import { Columns } from "components/Columns";
 import { Cover } from "components/Cover";
 import { Heading } from "components/Heading";
 import { Paragraph } from "components/Paragraph";
+import { PropertySearch } from "components/PropertySearch/PropertySearch";
 import Image from "next/image";
 import { theme } from "theme";
 
@@ -17,6 +18,9 @@ export const BlockRenderer = ({ blocks }) => {
                     destination={block.attributes.data.destination}
                     alignment={block.attributes.data.alignment}
                 />
+            }
+            case 'acf/propertysearch' : {
+                return <PropertySearch key={block.id} />
             }
             case 'core/paragraph' : {
                 return <Paragraph 
@@ -80,6 +84,7 @@ export const BlockRenderer = ({ blocks }) => {
                     />
                 )
             }
+
             default: {
                 console.log("UNKNOWN:", block);
                 return null;
