@@ -41,7 +41,14 @@ export const PropertySearch = () => {
     };
 
     const handlePageClick = async (pageNumber) => {
-        await router.push(`${router.query.slug.join("/")}?page=${pageNumber}`, null, {
+        const {
+            petFriendly: petFriendly,
+            hasParking: hasParking,
+            minPrice: minPrice,
+            maxPrice: maxPrice,
+        } = queryString.parse(window.location.search);
+
+        await router.push(`${router.query.slug.join("/")}?page=${pageNumber}&petFriendly=${petFriendly === "true"}&hasParking=${hasParking === "true"}&minPrice=${minPrice}&maxPrice=${maxPrice}`, null, {
             shallow: true,
         });
         search();
