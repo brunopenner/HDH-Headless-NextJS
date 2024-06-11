@@ -35,9 +35,15 @@ export const PropertySearch = () => {
     useEffect(() => {
         search();
     }, []);
+
+    const handleSearch = ({petFriendly, hasParking, minPrice, maxPrice}) => {
+        //update our browser url
+        //search
+    }
+
     return (
         <div>
-            <Filters />
+            <Filters onSearch={handleSearch} />
             <Results properties={properties}/>
             <Pagination 
                 onPageClick={handlePageClick} 
