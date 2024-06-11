@@ -1,7 +1,7 @@
 import { Input } from "components/Input"
 import { useState } from "react"
 
-export const Filters = (onSearch) => {
+export const Filters = ({onSearch}) => {
     const [petFriendly, setPetFriendly] = useState(false);
     const [hasParking, setHasParking] = useState(false);
     const [minPrice, setMinPrice] = useState("");
@@ -13,8 +13,8 @@ export const Filters = (onSearch) => {
             hasParking,
             minPrice,
             maxPrice
-        })
-    }
+        });
+    };
 
     return (
         <div className="max-w-5xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md">
