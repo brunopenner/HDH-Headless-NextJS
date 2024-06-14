@@ -81,6 +81,7 @@ export const BlockRenderer = ({ blocks }) => {
                 )
             }
             case "core/columns": {
+                console.log("CORE/COLUMNS: ", block.attributes);
                 return (
                     <Columns
                         key={block.id}
