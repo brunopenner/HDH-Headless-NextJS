@@ -8,12 +8,22 @@ import { Heading } from "components/Heading";
 import { Paragraph } from "components/Paragraph";
 import { PropertyFeatures } from "components/PropertyFeatures";
 import { PropertySearch } from "components/PropertySearch";
+import { TickItem } from "components/TickItem";
 import Image from "next/image";
 import { theme } from "theme";
 
 export const BlockRenderer = ({ blocks }) => {
     return blocks.map((block) => {
         switch(block.name) {
+            case 'acf/itckitem': {
+                return <TickItem key={block.id} >
+                    <BlockRenderer blocks = {block.innerBlocks} />
+                </TickItem>
+
+            }
+            case 'acf/tickitem': {
+                return <TickItem key={block.id} />
+            }
             case 'acf/formspreeform' : {
                 return <FormspreeForm 
                     key={block.id} 
