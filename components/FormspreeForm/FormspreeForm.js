@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { ValidationError, useForm } from "@formspree/react"
 import { Input } from 'components/Input';
