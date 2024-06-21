@@ -1,3 +1,5 @@
+/* This was the old way up to NextJS 12 to add google fonts */
+/* From Next JS 13+, fonts have to be imported differently. */
 /* @import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"); */
 
 @tailwind base;

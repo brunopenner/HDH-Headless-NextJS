@@ -1,6 +1,8 @@
 import {Poppins, Aboreto} from 'next/font/google';
 
 import "../styles/globals.css";
+import { getMenu } from 'utils/getMenu';
+import { MainMenu } from 'components/MainMenu';
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -16,10 +18,17 @@ const aboreto = Aboreto({
     variable: "--font-aboreto"
 })
 
-export default function RootLayout({children}) {
+export default async function RootLayout({children}) {
+    const data = await getMenu();
+    console.log({data});
     return (
         <html lang="en" className={`${poppins.variable} ${aboreto.variable}`}>
             <body className='font-body'>
+                <MainMenu 
+                    CallToActionDestination={data.CallToActionDestination}
+                    callToActionLabel={data.callToActionLabel}
+                    items={data.mainMenuItems} 
+                />
                 {children}
             </body>
         </html>
