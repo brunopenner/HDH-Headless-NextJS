@@ -28,8 +28,10 @@ export const Gallery = ({items, columns, imageCrop, linkTo}) => {
                         src={item.attributes.url}
                         height={maxHeight || item.attributes.height}
                         width={maxWidth || item.attributes.width} 
-                        alt={item.attributes.alt} 
-                        style={{ objectFit: 'cover', height:`${maxHeight || item.attributes.height}`, width:`${maxWidth || item.attributes.width}` }}  
+                        alt={item.attributes.alt || ""} 
+                        className="object-cover"
+                        priority
+                        style={{ height:`${maxHeight || item.attributes.height}`, width:`${maxWidth || item.attributes.width}` }}  
                     />
                 </div>
             ))}
